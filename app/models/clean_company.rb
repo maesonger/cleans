@@ -1,0 +1,2 @@
+class CleanCompany < ApplicationRecord
+end

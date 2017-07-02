@@ -1,0 +1,2 @@
+class CleanArea < ApplicationRecord
+end

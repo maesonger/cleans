@@ -1,0 +1,2 @@
+class CleanPrefecture < ApplicationRecord
+end
