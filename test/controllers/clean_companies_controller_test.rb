@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CleanCompaniesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get show" do
+    get clean_companies_show_url
+    assert_response :success
+  end
+
 end

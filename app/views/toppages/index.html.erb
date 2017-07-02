@@ -3,10 +3,14 @@
     <div class="cover-inner">
       <div class="cover-contents">
         <h1>清掃業者マッチングサービス</h1>
-        <a href="" class="btn btn-success btn-lg">Cleansを始める</a>
+          <% unless logged_in? %>
+            <%= link_to 'Cleansを始める', signup_path, class: 'btn btn-success btn-lg' %>
+          <% end %>
       </div>
     </div>
   </div>
 <% end %>
 
-<p>テスト</p>
+<% if logged_in? %>
+  <%= link_to '業者一覧をみる', class: 'btn btn-primary' %>
+<% end %>
