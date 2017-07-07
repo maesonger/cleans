@@ -5,6 +5,8 @@ class CreateCleanPrefectures < ActiveRecord::Migration[5.0]
       t.references :prefecture, foreign_key: true
 
       t.timestamps
+      
+      t.index [:clean_company_id, :prefecture_id], unique: true
     end
   end
 end

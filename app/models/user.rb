@@ -9,4 +9,7 @@ class User < ApplicationRecord
                     
   validates :tel, presence: true, length: { maximum: 11 }
   has_secure_password
+  
+  has_many :clean_reviews
+  has_many :clean_companies,through: :clean_reviews, source: :clean_company
 end

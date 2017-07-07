@@ -1,2 +1,40 @@
-<h1>CleanCompanies#show</h1>
-<p>Find me in app/views/clean_companies/show.html.erb</p>
+<div class="clean_company-profile">
+  <div class="icon text-center">
+    <img src = "../images/<%= @company.image_url %>" alt="" class="img-circle" height = 300 width = 300>
+  </div>
+  <div class="name text-center">
+    <h1><%= @company.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3">
+    <div class="clean_company">
+      <dl>
+        <dt>業者名</dt>　<dd><%= @company.name %></dd>
+        <dt>☎️</dt>　<dd><%= @company.tel %></dd>
+        <dt>作業可能地域</dt><dd>
+        <% @company.workings.each do |company| %>
+        <%= company.prefecture %>  
+        <% end %>
+          </dd>
+        <dt>部屋の広さ(平米)</dt>  <dd>清掃料金</dd>
+        <% @company.charges.each do |company| %>
+        <dt><%= company.square_meters_min %>〜<%= company.square_meters_max %></dt> 
+        <dd>¥<%= company.charge %>
+          </dd>
+        <% end %>
+        <dt>評価</dt>
+        <dt>ユーザー</dt>
+        <% @company.users.each do |user| %>
+          <% @company.clean_reviews.each do |review| %>
+            <dd><%= user.name %></dd>
+            <dt>点数</dt>
+            <dd><%= review.point %>点</dd>
+            <dd><%= review.comment %></dd>
+          <% end %>
+        <% end %>
+        
+      </dl>
+    </div>
+  </div>
+</div>

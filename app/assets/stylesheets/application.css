@@ -58,3 +58,79 @@ footer {
   font-weight: bold;
   letter-spacing: 0.15em;
 }
+
+/* clean_company */
+/*
+.clean_company-profile .name {
+  margin-bottom: 20px;
+}
+.clean_company-profile .name h1 {
+  text-shadow: 1px 1px 1px #fff;
+  font-weight: bold;
+}
+.clean_company-profile .img-circle {
+  margin-top: 60px;
+}
+
+.clean_company-profile .status ul {
+  margin: 0 auto 10px;
+  padding: 0;
+  display: table;
+}
+.clean_company-profile .status ul li {
+  width: 120px;
+  padding: 5px 0;
+  border-right: 1px solid #ddd;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #777;
+}
+.clean_company-profile .status ul li:last-child {
+  border: none;
+}
+.clean_company-profile .status ul li .status-label {
+  font-size: 12px;
+}
+.clean_company-profile .status ul li .status-value {
+  font-size: 18px;
+}
+*/
+
+
+.clean_company .panel-body {
+  height: 200px;
+  width: 1000px;
+}
+.clean_company .panel-heading {
+  height: 250px;
+}
+.clean_company .panel-heading img {
+  height: 100%;
+  max-width: 100%;
+}
+
+.clean_company {
+  width: 1000px;
+}
+.clean_company dl {
+  width: 1000px;
+}
+.clean_company dt {
+  float:left;
+  clear:left;
+  width:200px;
+  font-size:20px;
+}
+.clean_company dd {
+  float:left;
+  width:500px;
+  font-size:20px;
+}
+p.item-title {
+  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
