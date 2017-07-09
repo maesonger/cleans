@@ -10,5 +10,11 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   
   resources :users
-  resources :clean_companies
+  resources :clean_companies do
+    resources :clean_reviews
+  end
+  
+  resources :clean_companies do
+    resources :contact
+  end
 end

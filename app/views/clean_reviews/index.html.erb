@@ -1,6 +1,6 @@
 <div class="clean_company-profile">
   <div class="icon text-center">
-    <img src = "../images/<%= @company.image_url %>" alt="" class="img-circle" height = 300 width = 300>
+    <img src = "/images/<%= @company.image_url %>" alt="" class="img-circle" height = 300 width = 300>
   </div>
   <div class="name text-center">
     <h1><%= @company.name %></h1>
@@ -16,20 +16,15 @@
         </ul>
       </div>
       <dl>
-        <dt>業者名</dt>　<dd><%= @company.name %></dd>
-        <dt>☎️</dt>　<dd><%= @company.tel %></dd>
-        <dt>作業可能地域</dt><dd>
-        <% @company.workings.each do |company| %>
-        <%= company.prefecture %>  
-        <% end %>
-          </dd>
-        <dt>部屋の広さ(平米)</dt>  <dd>清掃料金</dd>
-        <% @company.charges.each do |company| %>
-        <dt><%= company.square_meters_min %>〜<%= company.square_meters_max %></dt> 
-        <dd>¥<%= company.charge %>
-          </dd>
-        <% end %>
-        <dt><%= link_to 'メールをする', clean_company_contact_index_path(@company) %></dt>
+        <dt>評価</dt>
+          <% @reviews.each do |review| %>
+            <dt>ユーザー</dt>
+            <dd><%= review.user.name %></dd>
+            <dt>点数</dt>
+            <dd><%= review.point %>点</dd>
+            <dd><%= review.comment %></dd>
+          <% end %>
+        <dt><%= link_to 'レビューをする', new_clean_company_clean_review_path(@company) %></dt>
       </dl>
     </div>
   </div>

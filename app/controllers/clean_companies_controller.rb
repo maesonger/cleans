@@ -7,5 +7,9 @@ class CleanCompaniesController < ApplicationController
   def show
     @company = CleanCompany.find(params[:id])
   end
+  
+  def new
+    @company = CleanCompany.new
+  end
 
 end

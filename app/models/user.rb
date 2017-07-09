@@ -11,5 +11,6 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :clean_reviews
+  has_many :clean_companies
   has_many :clean_companies,through: :clean_reviews, source: :clean_company
 end

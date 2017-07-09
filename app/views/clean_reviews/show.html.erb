@@ -1,0 +1,8 @@
+<dt>評価</dt>
+<% @company.users.zip(@company.clean_reviews).each do |user,review| %>
+  <dt>ユーザー</dt>
+  <dd><%= user.name %></dd>
+  <dt>点数</dt>
+  <dd><%= review.point %>点</dd>
+  <dd><%= review.comment %></dd>
+<% end %>
