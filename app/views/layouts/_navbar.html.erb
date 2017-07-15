@@ -19,6 +19,11 @@
                   <img src="<%= gravatar_url(current_user, size: 20) %>" alt="" class="img-circle">
                 </span>
                 <%= current_user.name %>
+                  (<% if current_user.account_type == 2 %>
+                    <%= "清掃業者側" %>
+                  <% else %>
+                    <%= "民泊オーナー側" %>
+                  <% end %>)
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
@@ -31,10 +36,10 @@
                 </li>
               </ul>
             </li>
-          <% else %>
-            <li><%= link_to '新規登録', signup_path %></li>
-            <li><%= link_to 'ログイン', login_path %></li>
-          <% end %>
+        <% else %>
+          <li><%= link_to '新規登録', signup_path %></li>
+          <li><%= link_to 'ログイン', login_path %></li>
+        <% end %>
       </ul>
       </div>
     </div>

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
   
   resources :clean_companies do
-    resources :contact
+    resources :clean_threads
+    get 'clean_threads/post', to: 'clean_threads#postshow'
+    post 'clean_threads/post'
   end
 end

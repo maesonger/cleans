@@ -17,9 +17,20 @@ class CleanCompany < ApplicationRecord
   
   has_many :clean_reviews
   has_many :users,through: :clean_reviews, source: :user
+
+  has_many :clean_threads
   
+
   def working?(prefecture)
     self.workings.include?(prefecture)
+  end
+  
+  def contact(account_type,user_id)
+    if account_type == 2 && user_id != params[:id]
+      return false
+    else
+      return true
+    end  
   end
   
   

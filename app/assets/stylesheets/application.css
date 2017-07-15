@@ -99,7 +99,6 @@ footer {
 
 
 .clean_company .panel-body {
-  height: 200px;
   width: 1000px;
 }
 .clean_company .panel-heading {
@@ -111,7 +110,7 @@ footer {
 }
 
 .clean_company {
-  width: 1000px;
+  width: 700px;
 }
 .clean_company dl {
   width: 1000px;
@@ -133,4 +132,39 @@ p.item-title {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+
+/* search */
+.search {
+  margin-bottom: 20px;
+}
+
+/* company */
+.company .panel-body {
+  height: 70px;
+}
+.company .panel-heading {
+  height: 250px;
+}
+.company .panel-heading img {
+  height: 100%;
+  max-width: 100%;
+}
+p.company-title {
+  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-align: center;
+}
+
+.users_companies {
+  
+  margin-top: 100px;
+}
+
+.tel {
+  text-align:center;
+  font-size: large
 }

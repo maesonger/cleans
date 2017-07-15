@@ -7,6 +7,7 @@ class CreateCleanPrefectures < ActiveRecord::Migration[5.0]
       t.timestamps
       
       t.index [:clean_company_id, :prefecture_id], unique: true
+      
     end
   end
 end

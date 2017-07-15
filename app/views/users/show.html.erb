@@ -1,8 +1,13 @@
 <div class="user-profile">
   <div class="icon text-center">
-    <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
+    <img src="<%= gravatar_url(@user, size: 200) %>" alt="" class="img-circle">
   </div>
   <div class="name text-center">
     <h1><%= @user.name %></h1>
   </div>
+  
+</div>
+
+<div = 'users_companies'>
+  <%= render 'clean_companies/companies', companies: @companies %>
 </div>
