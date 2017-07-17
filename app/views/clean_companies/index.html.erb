@@ -1,3 +1,1 @@
-<% @companies.each do |company| %>
-  <%= link_to company.name, clean_company_path(company.id) %>
-<% end %>
+<%= render 'clean_companies/companies', companies: @companies %>

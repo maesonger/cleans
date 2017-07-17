@@ -57,3 +57,6 @@ group :development do
   gem 'pry-byebug'
   gem 'awesome_print'
 end
+
+
+gem 'carrierwave'

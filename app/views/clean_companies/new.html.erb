@@ -1,27 +1,260 @@
 <div class="row">
-  <div class="col-xs-offset-3 col-xs-6">
+  <div class="col-md-offset-3 col-md-6 col-xs-offset-0">
     <div class="panel panel-default">
       <div class="panel-heading">会社登録</div>
       <div class="panel-body">
-        <%= form_for(@company) do |f| %>
+        <%= form_tag(clean_companies_path, method: 'post') do %>
           <%= hidden_field_tag :user_id, current_user.id %>
-          <div class="form-group">
-            <%= f.label :name, '会社名' %>
-            <%= f.text_field :name, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :email, 'メールアドレス' %>
-            <%= f.email_field :email, class: 'form-control' %>
+          <div class = "form-group">
+            <%= label_tag 'name', "会社名"%>
+            <%= text_field_tag 'name', '', class: 'form-control' %>
           </div>
           
-          <div class="form-group">
-            <%= f.label :tel, '電話番号' %>
-            <%= f.text_field :tel, class: 'form-control' %>
+          
+          
+          <div class = "form-group">
+            <%= label_tag 'email', "メールアドレス"%>
+            <%= text_field_tag 'email', '', class: 'form-control' %>
           </div>
-
-          <div class="text-right">
-            <%= f.submit '登録する', class: 'btn btn-success' %>
+          
+          <div class = "form-group">
+            <%= label_tag 'tel', "電話番号"%>
+            <%= text_field_tag 'tel', '', class: 'form-control' %>
+          </div>
+          
+          <div class = "form-group area">
+            <%= label_tag 'area', "作業可能地域"%>
+          </div>
+          
+          <div class = "form-group">
+            <%= label_tag 'area', "関東地区"%>
+          </div>
+          
+          <div class = "form-group">
+            <%= check_box_tag 'prefecture_id[]',checked_value = "13" %>
+            <%= label_tag :prefecture, "東京都 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "14" %>
+            <%= label_tag :prefecture, "神奈川県 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "11" %>
+            <%= label_tag :prefecture, "埼玉県 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "12" %>
+            <%= label_tag :prefecture, "千葉県 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "8" %>
+            <%= label_tag :prefecture, "茨城県 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "9" %>
+            <%= label_tag :prefecture, "栃木県 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "10" %>
+            <%= label_tag :prefecture, "群馬県 " %>
+          </div>
+          
+          <div class = "form-group">
+            <%= label_tag 'area', "関西地区"%>
+          </div>
+          
+          <div class = "form-group">
+            <%= check_box_tag 'prefecture_id[]',checked_value = "27" %>
+            <%= label_tag :prefecture, "大阪府 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "26" %>
+            <%= label_tag :prefecture, "京都府 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "29" %>
+            <%= label_tag :prefecture, "奈良県 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "28" %>
+            <%= label_tag :prefecture, "兵庫県 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "25" %>
+            <%= label_tag :prefecture, "滋賀県 " %>
+            <%= check_box_tag 'prefecture_id[]',checked_value = "30" %>
+            <%= label_tag :prefecture, "和歌山県 " %>
+          </div>
+          
+          
+            <div class = "form-group chargetitle">
+              <%= label_tag 'charge', "料金詳細"%>
+            </div>
+            
+            <div class = "form-group">
+              <%= label_tag 'square_meters_min', "平米以上", class: 'square_meters' %>
+              <%= label_tag 'square_meters_max', "平米未満", class: 'square_meters' %>
+              <%= label_tag 'charge', "料金(円)", class: 'charge' %>
+            </div>
+            
+            <div class = "form-group"> 
+              <select class="form-control square_meters" id="square_meters_min" name="square_meters_min[]">
+                <option value="" selected = "selected"></option>
+                <option value="0">0</option>
+                <option value="10.1">10.1</option>
+                <option value="20.1">20.1</option>
+                <option value="30.1">30.1</option>
+                <option value="40.1">40.1</option>
+                <option value="50.1">50.1</option>
+                <option value="60.1">60.1</option>
+                <option value="70.1">70.1</option>
+                <option value="80.1">80.1</option>
+                <option value="90.1">90.1</option>
+              </select>
+              <select class="form-control square_meters" id="square_meters_max" name="square_meters_max[]">
+                <option value="" selected = "selected"></option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+              </select>
+              <%= text_field_tag 'charge[]', '', class: 'form-control charge' %>
+            </div>
+            
+            <div class = "form-group">
+              <%= label_tag 'square_meters_min', "平米以上", class: 'square_meters' %>
+              <%= label_tag 'square_meters_max', "平米未満", class: 'square_meters' %>
+              <%= label_tag 'charge', "料金(円)", class: 'charge' %>
+            </div>
+            
+            <div class = "form-group">  
+              <select class="form-control square_meters" id="square_meters_min" name="square_meters_min[]">
+                <option value="" selected = "selected"></option>
+                <option value="0">0</option>
+                <option value="10.1">10.1</option>
+                <option value="20.1">20.1</option>
+                <option value="30.1">30.1</option>
+                <option value="40.1">40.1</option>
+                <option value="50.1">50.1</option>
+                <option value="60.1">60.1</option>
+                <option value="70.1">70.1</option>
+                <option value="80.1">80.1</option>
+                <option value="90.1">90.1</option>
+              </select>
+              <select class="form-control square_meters" id="square_meters_max" name="square_meters_max[]">
+                <option value="" selected = "selected"></option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+              </select>
+              <%= text_field_tag 'charge[]', '', class: 'form-control charge' %>
+            </div>
+            
+            <div class = "form-group">
+              <%= label_tag 'square_meters_min', "平米以上", class: 'square_meters' %>
+              <%= label_tag 'square_meters_max', "平米未満", class: 'square_meters' %>
+              <%= label_tag 'charge', "料金(円)", class: 'charge' %>
+            </div>
+            
+            <div class = "form-group">  
+              <select class="form-control square_meters" id="square_meters_min" name="square_meters_min[]">
+                <option value="" selected = "selected"></option>
+                <option value="0">0</option>
+                <option value="10.1">10.1</option>
+                <option value="20.1">20.1</option>
+                <option value="30.1">30.1</option>
+                <option value="40.1">40.1</option>
+                <option value="50.1">50.1</option>
+                <option value="60.1">60.1</option>
+                <option value="70.1">70.1</option>
+                <option value="80.1">80.1</option>
+                <option value="90.1">90.1</option>
+              </select>
+              <select class="form-control square_meters" id="square_meters_max" name="square_meters_max[]">
+                <option value="" selected = "selected"></option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+              </select>
+              <%= text_field_tag 'charge[]', '', class: 'form-control charge' %>
+            </div>
+            
+            <div class = "form-group">
+              <%= label_tag 'square_meters_min', "平米以上", class: 'square_meters' %>
+              <%= label_tag 'square_meters_max', "平米未満", class: 'square_meters' %>
+              <%= label_tag 'charge', "料金(円)", class: 'charge' %>
+            </div>
+            
+            <div class = "form-group">  
+              <select class="form-control square_meters" id="square_meters_min" name="square_meters_min[]">
+                <option value="" selected = "selected"></option>
+                <option value="0">0</option>
+                <option value="10.1">10.1</option>
+                <option value="20.1">20.1</option>
+                <option value="30.1">30.1</option>
+                <option value="40.1">40.1</option>
+                <option value="50.1">50.1</option>
+                <option value="60.1">60.1</option>
+                <option value="70.1">70.1</option>
+                <option value="80.1">80.1</option>
+                <option value="90.1">90.1</option>
+              </select>
+              <select class="form-control square_meters" id="square_meters_max" name="square_meters_max[]">
+                <option value="" selected = "selected"></option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+              </select>
+              <%= text_field_tag 'charge[]', '', class: 'form-control charge' %>
+            </div>
+            
+            <div class = "form-group">
+              <%= label_tag 'square_meters_min', "平米以上", class: 'square_meters' %>
+              <%= label_tag 'square_meters_max', "平米未満", class: 'square_meters' %>
+              <%= label_tag 'charge', "料金(円)", class: 'charge' %>
+            </div>
+            
+            <div class = "form-group">  
+              <select class="form-control square_meters" id="square_meters_min" name="square_meters_min[]">
+                <option value="" selected = "selected"></option>
+                <option value="0">0</option>
+                <option value="10.1">10.1</option>
+                <option value="20.1">20.1</option>
+                <option value="30.1">30.1</option>
+                <option value="40.1">40.1</option>
+                <option value="50.1">50.1</option>
+                <option value="60.1">60.1</option>
+                <option value="70.1">70.1</option>
+                <option value="80.1">80.1</option>
+                <option value="90.1">90.1</option>
+              </select>
+              <select class="form-control square_meters" id="square_meters_max" name="square_meters_max[]">
+                <option value="" selected = "selected"></option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+              </select>
+              <%= text_field_tag 'charge[]', '', class: 'form-control charge' %>
+            </div>
+          
+          
+          
+          <div class = "text-right">
+            <%= submit_tag '登録する',class: 'btn btn-success' %><br />
           </div>
         <% end %>
       </div>

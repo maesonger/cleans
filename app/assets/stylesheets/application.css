@@ -168,3 +168,37 @@ p.company-title {
   text-align:center;
   font-size: large
 }
+
+.square_meters{
+  width:25%;
+  float:left;
+  margin-right: 5px;
+}
+
+.charge{
+  width:40%;
+  float: left;
+}
+.prefecture{
+  clear:both;
+  
+}
+
+.subject{
+  font-size:20px;
+  margin-top: 30px
+}
+
+.chargeslast{
+  margin-bottom :40px
+}
+
+.area{
+  font-size:25px;
+  margin-top: 30px;
+}
+
+.chargetitle{
+  font-size:25px;
+  margin-top: 30px;
+}

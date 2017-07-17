@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     get 'clean_threads/post', to: 'clean_threads#postshow'
     post 'clean_threads/post'
   end
+  
+  resources :clean_details
 end
