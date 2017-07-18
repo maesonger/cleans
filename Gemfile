@@ -60,3 +60,7 @@ end
 
 
 gem 'carrierwave'
+
+group :production do
+  gem 'pg'
+end
