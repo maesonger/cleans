@@ -4,12 +4,21 @@
       <div class="panel-heading">会社登録</div>
       <div class="panel-body">
         <%= form_tag(clean_companies_path, method: 'post') do %>
+          <% @company.errors.full_messages.each do | message |%>
+            <%= render 'layouts/error_company_messages' %>
+          <% end %>
+          @prefecture.errors.full_messages.each do | message | あとはいつも通り
+          @charge.errors.full_messages.each do | message | あとはいつも通り
+          
+          <%= render 'layouts/error_messages', model: @company.clean_prefectures %>
+          <%= render 'layouts/error_messages', model: @company.charges %>
           <%= hidden_field_tag :user_id, current_user.id %>
           <div class = "form-group">
             <%= label_tag 'name', "会社名"%>
             <%= text_field_tag 'name', '', class: 'form-control' %>
           </div>
         
+          
           
           <div class = "form-group">
             <%= label_tag 'email', "メールアドレス"%>

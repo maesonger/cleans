@@ -12,6 +12,7 @@ class CleanCompaniesController < ApplicationController
   
   def new
     @company = CleanCompany.new
+    @prefecture = CleanPrefecture.new
     @charge = Charge.new
   end
   
@@ -28,12 +29,13 @@ class CleanCompaniesController < ApplicationController
     if @company.save
     else
       flash.now[:danger] = '会社の登録に失敗しました。'
+      render :new
     end
     
     
     
     (0..13).each do |num|
-      if params[:prefecture_id][num] != ""
+      if params[:prefecture_id][num].present?
         @prefecture = CleanPrefecture.new(
           clean_company_id: @company.id,
           prefecture_id: params[:prefecture_id][num]
@@ -41,12 +43,16 @@ class CleanCompaniesController < ApplicationController
         if @prefecture.save
         else
           flash.now[:danger] = '作業地域の登録に失敗しました。'
+          render :new
         end
+      else
+        flash.now[:danger] = '作業地域の登録に失敗しました。'
+        render :new
       end
     end
 
     (0..3).each do |num|
-      if params[:square_meters_min][num] != ""
+      if params[:square_meters_min][num].present?
         @charge = Charge.new(
           clean_company_id: @company.id,
           square_meters_min: params[:square_meters_min][num],
@@ -54,13 +60,14 @@ class CleanCompaniesController < ApplicationController
           charge: params[:charge][num]
         )
         if @charge.save
-=begin
-          flash[:success] = '会社を登録いたしました。'
-          redirect_to clean_company_path(@company) and return
-=end
+
         else
-          flash.now[:danger] = '料金の登録に失敗しました。'
+          flash.now[:danger] = '会社の登録に失敗しました。'
+          render :new
         end
+      else
+        flash.now[:danger] = '会社の登録に失敗しました。'
+        render :new
       end
     end
   

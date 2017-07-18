@@ -1,0 +1,19 @@
+<div class="alert alert-warning">
+  <ul>
+    <% if @company.errors.any? %>
+      <% @company.errors.full_messages.each do | message |%>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+    <% if @prefecture.errors.any? %>
+      <% @prefecture.errors.full_messages.each do | message |%>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+    <% if @charge.errors.any? %>
+      <% @charge.errors.full_messages.each do | message |%>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
