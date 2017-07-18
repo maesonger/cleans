@@ -17,7 +17,6 @@ class CleanCompaniesController < ApplicationController
   
   def create
     
-    #binding.pry
     
     @company = CleanCompany.new(
       user_id: params[:user_id],

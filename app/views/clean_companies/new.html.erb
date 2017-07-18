@@ -9,8 +9,7 @@
             <%= label_tag 'name', "会社名"%>
             <%= text_field_tag 'name', '', class: 'form-control' %>
           </div>
-          
-          
+        
           
           <div class = "form-group">
             <%= label_tag 'email', "メールアドレス"%>
@@ -18,8 +17,8 @@
           </div>
           
           <div class = "form-group">
-            <%= label_tag 'tel', "電話番号"%>
-            <%= text_field_tag 'tel', '', class: 'form-control' %>
+            <%= label_tag 'tel', "電話番号(ハイフン不要)"%>
+            <%= telephone_field_tag 'tel', '', class: 'form-control' %>
           </div>
           
           <div class = "form-group area">
