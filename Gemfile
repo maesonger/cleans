@@ -64,3 +64,9 @@ gem 'carrierwave'
 group :production do
   gem 'pg'
 end
+
+group :development do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'awesome_print'
+end

@@ -7,8 +7,8 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
                     
-  validates :tel, presence: true, length: { maximum: 11 }#,
-                    #format: { with: /^\d{10}$|^\d{11}$/}
+  validates :tel, presence: true, length: { maximum: 11 },
+                    format: { with: /\A\d{10}$|^\d{11}\z/}
                   
   has_secure_password
   

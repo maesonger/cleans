@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   
+  get 'map', to: 'map#index'
+  
+  get 'clean_companies/results', to: 'results#show'
+  
   resources :users
   resources :clean_companies do
     resources :clean_reviews
@@ -20,5 +24,10 @@ Rails.application.routes.draw do
     post 'clean_threads/post'
   end
   
-  resources :clean_details
+  
+  resources :clean_prefectures
+  
+  resources :clean_charges
+  
+  
 end

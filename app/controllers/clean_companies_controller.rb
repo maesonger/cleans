@@ -18,6 +18,7 @@ class CleanCompaniesController < ApplicationController
   
   def create
     
+    #binding.pry
     
     @company = CleanCompany.new(
       user_id: params[:user_id],
@@ -25,62 +26,54 @@ class CleanCompaniesController < ApplicationController
       tel: params[:tel],
       email: params[:email]
     )
-    
+
     if @company.save
     else
       flash.now[:danger] = '会社の登録に失敗しました。'
-      render :new
+      render :new and return
     end
+
+    if params[:prefecture_id].nil?
+      flash.now[:danger] = '作業可能地域が入力されていません。'
+      render :new and return
+    end
+
+    params[:prefecture_id].each do |p| 
     
-    
-    
-    (0..13).each do |num|
-      if params[:prefecture_id][num].present?
-        @prefecture = CleanPrefecture.new(
-          clean_company_id: @company.id,
-          prefecture_id: params[:prefecture_id][num]
-        )
-        if @prefecture.save
-        else
-          flash.now[:danger] = '作業地域の登録に失敗しました。'
-          render :new
-        end
+      @prefecture = CleanPrefecture.new(
+        clean_company_id: @company.id,
+        prefecture_id: p.to_i
+      )
+      #binding.pry
+      if @prefecture.save
       else
         flash.now[:danger] = '作業地域の登録に失敗しました。'
-        render :new
       end
+      
     end
 
-    (0..3).each do |num|
-      if params[:square_meters_min][num].present?
+    params[:square_meters_min].each_with_index do |meter, i| 
+      if !params[:square_meters_min][i].blank?
         @charge = Charge.new(
           clean_company_id: @company.id,
-          square_meters_min: params[:square_meters_min][num],
-          square_meters_max: params[:square_meters_max][num],
-          charge: params[:charge][num]
+          square_meters_min: params[:square_meters_min][i],
+          square_meters_max: params[:square_meters_max][i],
+          charge: params[:charge][i]
         )
         if @charge.save
-
         else
-          flash.now[:danger] = '会社の登録に失敗しました。'
-          render :new
+          flash.now[:danger] = '料金の登録に失敗しました。'
         end
-      else
-        flash.now[:danger] = '会社の登録に失敗しました。'
-        render :new
       end
     end
-  
-    if @charge.save
+
+    # if @charge.save
       flash[:success] = '会社を登録いたしました。'
       redirect_to clean_company_path(@company)
-    end 
-    
-    
-    
+    # end 
+
   end
-  
-  
+
   private
   
   # Strong Parameter
