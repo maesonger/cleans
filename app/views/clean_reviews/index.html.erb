@@ -24,7 +24,9 @@
             <dd><%= review.point %>点</dd>
             <dd><%= review.comment %></dd>
           <% end %>
+        <% if current_user.is_hotel %>
         <dt><%= link_to 'レビューをする', new_clean_company_clean_review_path(@company) %></dt>
+        <% end %>
       </dl>
     </div>
   </div>

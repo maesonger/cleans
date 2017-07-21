@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :users
   resources :clean_companies do
     resources :clean_reviews
+    resources :clean_prefectures
+    resources :clean_charges
   end
   
   resources :clean_companies do
@@ -25,9 +27,7 @@ Rails.application.routes.draw do
   end
   
   
-  resources :clean_prefectures
   
-  resources :clean_charges
   
   
 end

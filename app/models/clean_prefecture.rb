@@ -3,6 +3,5 @@ class CleanPrefecture < ApplicationRecord
   belongs_to :prefecture
   
   validates :clean_company_id, presence:true
-  validates :prefecture_id, presence:true, :acceptance => {:message => 'チェックしてください'}
-  
+  validates :prefecture_id, presence:true
 end
