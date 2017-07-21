@@ -32,6 +32,8 @@ class CleanReviewsController < ApplicationController
   def destroy
   end
   
+  
+  
   private
 
   # Strong Parameter

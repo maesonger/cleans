@@ -2,7 +2,7 @@
   <div class="cover">
     <div class="cover-inner">
       <div class="cover-contents">
-        <h1>清掃業者マッチングサービス</h1>
+        <h1>民泊物件と清掃業者マッチングサービス</h1>
           <% unless logged_in? %>
             <%= link_to 'Cleansを始める', signup_path, class: 'btn btn-success btn-lg' %>
           <% end %>
@@ -12,8 +12,9 @@
 <% end %>
 
 <% if logged_in? %>
+  <% if current_user.is_hotel %>
   <%= link_to '業者一覧をみる', clean_companies_url, class: 'btn btn-primary' %>
-  <% if current_user.account_type == 2 %>
+  <% elsif current_user.is_clean_company %>
     <%= link_to '会社情報を入力する', new_clean_company_url, class: 'btn btn-primary' %>
   <% end %>
 <% end %>

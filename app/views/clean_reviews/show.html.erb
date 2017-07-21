@@ -1,6 +1,6 @@
 <dt>評価</dt>
 <% @company.users.zip(@company.clean_reviews).each do |user,review| %>
-  <dt>ユーザー</dt>
+  <dt><img src="<%= gravatar_url(user, options = { size: 30 }) %>"</dt>
   <dd><%= user.name %></dd>
   <dt>点数</dt>
   <dd><%= review.point %>点</dd>
