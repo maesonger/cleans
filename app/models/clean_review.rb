@@ -22,6 +22,17 @@ class CleanReview < ApplicationRecord
       '⭐'
     end
   end
-  
-  
+
+  # [吉田実装]
+  # point カラムの型が string になってしまっているため、
+  # Postgres で AVG がエラーになってしまう
+  # よって、値を取得して配列に保持してから、データベースではなく、
+  # Ruby の世界で平均値を算出する
+  def self.avg(reviews)
+    points = reviews.pluck(:point)
+    sum = points.inject(0) { |total, i| total + i.to_f }
+    i = points.length
+    sum.to_f / i
+  end
+
 end
