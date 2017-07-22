@@ -70,3 +70,5 @@ group :development do
   gem 'pry-byebug'
   gem 'awesome_print'
 end
+
+gem 'rails_12factor', group: :production
