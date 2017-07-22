@@ -20,7 +20,7 @@
         <dt>評価</dt>
         <% if @reviews.exists? %>
           <dd>平均
-          <%= @reviews.average(:point) %>点／5点満点中
+          <%= @reviews.average(:point).to_f %>点／5点満点中
           </dd>
         <% else %>
           <dd>まだ評価はありません。</dd>
