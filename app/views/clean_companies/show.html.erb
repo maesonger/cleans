@@ -1,7 +1,7 @@
 <%= get_back %>
 <div class="clean_company-profile">
   <div class="icon text-center">
-    <img src = "../images/<%= @company.image_url %>" alt="" class="img-circle" height = 300 width = 300>
+    <%= image_tag(@company.image_url, :size => "300x300", :class => "img-circle") %>
   </div>
   <div class="name text-center">
     <h1><%= @company.name %></h1>
