@@ -1,33 +1,3 @@
-CleanCompany.create( id: 1, user_id: 8,name: '会社名A',tel: '03-1111-2222',email: 'maesong.from.badcity@gmail.com',image_url:'img1.jpg')
-CleanCompany.create( id: 2, user_id: 8,name: '会社名B',tel: '03-3333-4444',email: 'maesong.from.badcity@yahoo.com',image_url:'')
-CleanCompany.create( id: 3, user_id: 8,name: '会社名C',tel: '03-5555-6666',email: 'maesong.from.badcity@yahoo.co.jp',image_url:'')
-CleanCompany.create( id: 4, user_id: 8,name: 'test',tel: '1111',email: 'test@email.com',image_url:'')
-CleanCompany.create( id: 5, user_id: 8,name: 'Mクリーンズ',tel: '0120-111-555',email: 'test@clean.com',image_url:'')
-
-CleanReview.create( id: 1, user_id: 1, clean_company_id: 1, point: '4.5', comment: 'とても、綺麗にしてくださいました。始末後の連絡も丁寧でした。また、お願いします。')
-CleanReview.create( id: 2, user_id: 4, clean_company_id: 1, point: '5', comment: '素晴らしいです')
-CleanReview.create( id: 3, user_id: 3, clean_company_id: 1, point: '4', comment: '連絡もスムーズでした')
-CleanReview.create( id: 4, user_id: 6, clean_company_id: 1, point: '5', comment: '親切丁寧な仕事ぶりでした')
-CleanReview.create( id: 5, user_id: 7, clean_company_id: 1, point: '5', comment: '最高')
-
-User.create( id: 1, name: 'maesonger', account_type: 1, email: 'maesong.from.badcity@gmail.com', tel: '0726832214', password: 'uhikki58')
-User.create( id: 2, name: 'test1', account_type: 1, email: 'test1@email.com', tel: '11111111', password: 'uhikki58')
-User.create( id: 3, name: '前田', account_type: 1, email: 'maesong.from.badcity@yahoo.co.jp', tel: '0726242282', password: 'uhikki58')
-User.create( id: 4, name: '知英', account_type: 1, email: 'maesong_from_badcity@yahoo.co.jp', tel: '0726242282', password: 'uhikki58')
-User.create( id: 5, name: '吉田', account_type: 1, email: 'y.yoshida22@gmail.com', tel: '00011112222', password: 'uhikki58')
-User.create( id: 6, name: 'マエソン', account_type: 1, email: 'maesong_from_badcity@ezweb.ne.jp', tel: '0728598392', password: 'uhikki58')
-User.create( id: 7, name: 'マエだ', account_type: 1, email: 'maeson@email.com', tel: '0726832214', password: 'uhikki58')
-User.create( id: 8, name: 'Mメンテナンス', account_type: 2, email: 'maesong@email.com', tel: '0726242282', password: 'uhikki58')
-
-Charge.create( id: 1, clean_company_id: 1, square_meters_min: '0', square_meters_max: '20', charge:'4000')
-Charge.create( id: 2, clean_company_id: 1, square_meters_min: '20.1', square_meters_max: '50', charge:'5000')
-Charge.create( id: 3, clean_company_id: 1, square_meters_min: '50.1', square_meters_max: '80', charge:'6000')
-
-CleanPrefecture.create( id: 1, clean_company_id: 1, prefecture_id: 12)
-CleanPrefecture.create( id: 2, clean_company_id: 1, prefecture_id: 13)
-CleanPrefecture.create( id: 3, clean_company_id: 1, prefecture_id: 11)
-CleanPrefecture.create( id: 4, clean_company_id: 1, prefecture_id: 14)
-
 Prefecture.create( id: 1, prefecture: '北海道')
 Prefecture.create( id: 2, prefecture: '青森県')
 Prefecture.create( id: 3, prefecture: '岩手県')
