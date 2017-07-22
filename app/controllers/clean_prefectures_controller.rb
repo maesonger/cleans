@@ -16,7 +16,12 @@ class CleanPrefecturesController < ApplicationController
     @prefecture = CleanPrefecture.new
     
     
-    params[:prefecture_id].each do |p| 
+    params[:prefecture_id].each do |p|
+
+      # ブラウザバックの考慮として、既に都道府県が登録されている場合は、ループをスキップする
+      if CleanPrefecture.exists?(clean_company_id: params[:clean_company_id], prefecture_id: p.to_i)
+        next
+      end
 
       @prefecture = CleanPrefecture.new(
         clean_company_id: params[:clean_company_id],
