@@ -1,7 +1,8 @@
 <%= get_back %>
 <div class="clean_company-profile">
   <div class="icon text-center">
-    <img src = "/images/<%= @company.image_url %>" alt="" class="img-circle" height = 300 width = 300>
+    <% puts File::expand_path('/images/img1.jpg')%>
+    <!--<img src = "/images/<%= @company.image_url %>" alt="" class="img-circle" height = 300 width = 300>-->
   </div>
   <div class="name text-center">
     <h1><%= @company.name %></h1>
