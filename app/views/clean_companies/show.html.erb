@@ -52,18 +52,20 @@
         
         <% elsif current_user.is_clean_company %>
           <!-- ログインユーザーが清掃業者の場合 -->
-          <ul class="media-list">
-            <% @threads.each do |thread| %>
-              <li class="media">
-                <div class="pull-left">
-                  <img src="<%= gravatar_url(thread.user, options = { size: 20 }) %>" alt="" class="img-circle">
-                </div>
-                <div class="pull-left">
-                  <%= link_to thread.user.name + 'へのメッセージ画面へ', clean_company_clean_thread_path(params[:id],thread.id) %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+          <dd>
+            <ul class="media-list">
+              <% @threads.each do |thread| %>
+                <li class="media">
+                  <div class="pull-left">
+                    <img src="<%= gravatar_url(thread.user, options = { size: 20 }) %>" alt="" class="img-circle">
+                  </div>
+                  <div class="pull-left">
+                    <%= link_to thread.user.name + 'へのメッセージ画面へ', clean_company_clean_thread_path(params[:id],thread.id) %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </dd>
         <% end %>
       </div>
     </div>

@@ -22,4 +22,6 @@ class CleanReview < ApplicationRecord
       '⭐'
     end
   end
+  
+  
 end

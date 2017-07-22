@@ -18,7 +18,13 @@
       </div>
       <dl>
         <dt>評価</dt>
-        <dd>平均<%= @reviews.average(:point) %>点／5点満点中</dd>
+        <% if @reviews.exists? %>
+          <dd>平均
+          <%= @reviews.average(:point) %>点／5点満点中
+          </dd>
+        <% else %>
+          <dd>まだ評価はありません。</dd>
+        <% end %>
           <% @reviews.each do |review| %>
             <dt><img src="<%= gravatar_url(review.user, options = { size: 25 }) %>" alt="" class="img-circle">  <%= review.user.name %></dt>
             <dd><%= review.getpoint %></dd>

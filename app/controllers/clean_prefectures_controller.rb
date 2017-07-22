@@ -37,6 +37,8 @@ class CleanPrefecturesController < ApplicationController
       end
       
     end
-    
+    flash.now[:danger] = 'すでに登録済みです。'
+    redirect_to new_clean_company_clean_charge_path(params[:clean_company_id]) and return
   end
+  
 end
