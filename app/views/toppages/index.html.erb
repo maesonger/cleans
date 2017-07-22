@@ -3,18 +3,17 @@
     <div class="cover-inner">
       <div class="cover-contents">
         <h1>民泊物件と清掃業者マッチングサービス</h1>
-          <% unless logged_in? %>
+          <% if logged_in? %>
+            <% if current_user.is_hotel%>
+              <%= link_to '業者一覧をみる', clean_companies_url, class: 'btn btn-primary' %>
+            <% elsif%>
+              <%= link_to '会社情報を入力する', new_clean_company_url, class: 'btn btn-primary' %>
+            <% end %>
+            
+          <% else %>
             <%= link_to 'Cleansを始める', signup_path, class: 'btn btn-success btn-lg' %>
           <% end %>
       </div>
     </div>
   </div>
-<% end %>
-
-<% if logged_in? %>
-  <% if current_user.is_hotel %>
-  <%= link_to '業者一覧をみる', clean_companies_url, class: 'btn btn-primary' %>
-  <% elsif current_user.is_clean_company %>
-    <%= link_to '会社情報を入力する', new_clean_company_url, class: 'btn btn-primary' %>
-  <% end %>
 <% end %>

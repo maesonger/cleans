@@ -1,3 +1,4 @@
+<%= get_back %>
 <div class="clean_company-profile">
   <div class="icon text-center">
     <img src = "/images/<%= @company.image_url %>" alt="" class="img-circle" height = 300 width = 300>
@@ -17,6 +18,7 @@
       </div>
       <dl>
         <dt>評価</dt>
+        <dd>平均<%= @reviews.average(:point) %>点／5点満点中</dd>
           <% @reviews.each do |review| %>
             <dt><img src="<%= gravatar_url(review.user, options = { size: 25 }) %>" alt="" class="img-circle">  <%= review.user.name %></dt>
             <dd><%= review.getpoint %></dd>

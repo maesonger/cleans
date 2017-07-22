@@ -4,6 +4,14 @@ module CleanCompaniesHelper
     size = options[:size]
     "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=mm"
   end
+  
+  def get_back
+    if current_user.is_hotel
+      link_to '<一覧に戻る', clean_companies_path, class: 'btn btn-default'
+    elsif current_user.is_clean_company
+      link_to '<一覧に戻る', user_path(current_user.id), class: 'btn btn-default'
+    end
+  end
 
   # おすすめ
   # is_xxx?

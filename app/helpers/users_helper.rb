@@ -4,4 +4,8 @@ module UsersHelper
     size = options[:size]
     "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=mm"
   end
+  
+  def get_back_top
+    link_to '<トップに戻る', root_path, class: 'btn btn-default'
+  end
 end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   
   get 'map', to: 'map#index'
   
+  get 'clean_companies/search', to: 'search#index'
   get 'clean_companies/results', to: 'results#show'
   
   resources :users
