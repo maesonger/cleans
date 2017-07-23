@@ -18,6 +18,7 @@ class CleanCompaniesController < ApplicationController
     
     @company = CleanCompany.new(user_id: params[:user_id],
                                 name: params[:clean_company][:name],
+                                image_url: params[:clean_company][:image_url],
                                 tel: params[:clean_company][:tel],
                                 email: params[:clean_company][:email])
     

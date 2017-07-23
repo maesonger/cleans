@@ -13,6 +13,11 @@
           </div>
           
           <div class = "form-group">
+            <%=f.label :image_url,"ユーザー画像" %>
+            <%= f.file_field :image_url %>
+          </div>
+          
+          <div class = "form-group">
             <%= f.label :email, "メールアドレス"%>
             <%= f.text_field :email, class: 'form-control' %>
           </div>

@@ -5,9 +5,9 @@
         <h1>民泊物件と清掃業者マッチングサービス</h1>
           <% if logged_in? %>
             <% if current_user.is_hotel%>
-              <%= link_to '業者一覧をみる', clean_companies_url, class: 'btn btn-primary' %>
+              <%= link_to '業者一覧をみる', clean_companies_url, class: 'btn btn-primary btn-lg' %>
             <% elsif%>
-              <%= link_to '会社情報を入力する', new_clean_company_url, class: 'btn btn-primary' %>
+              <%= link_to '会社情報を入力する', new_clean_company_url, class: 'btn btn-primary btn-lg' %>
             <% end %>
             
           <% else %>

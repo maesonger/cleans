@@ -1,6 +1,8 @@
 class CleanCompany < ApplicationRecord
   before_save { self.email.downcase! }
   
+  mount_uploader :image_url, ImageUploader
+  
   belongs_to :user
   
   validates :name, presence: true, length: { maximum: 255 }
@@ -9,9 +11,9 @@ class CleanCompany < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :tel, presence: true, length: { maximum: 11 },
                 format: { with: /\A\d{10}$|^\d{11}\z/}
+  validates :image_url, presence: true
   
                 
-  #validates :image_url, presence: true, length: { maximum: 255 }
   has_many :clean_prefectures
   has_many :prefectures, through: :clean_prefectures
   has_many :workings, through: :clean_prefectures, source: :prefecture
