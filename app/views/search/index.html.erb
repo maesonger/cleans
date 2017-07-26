@@ -1,0 +1,47 @@
+<% if logged_in? %>
+  <% if current_user.is_hotel %>
+    <div class="row">
+    <div class="col-md-offset-3 col-md-6 col-xs-offset-0">
+      <div class="panel panel-default">
+        <div class="panel-heading">自分の地域を選択</div>
+        <div class="panel-body">
+          <%= form_tag(clean_companies_results_path,:method => 'get') do%>
+            
+            <div class = "form-group">
+              <%= label_tag 'area', "関東地区"%>
+            </div>
+            
+            <div class = "form-group">
+              <label><%= radio_button_tag 'prefecture_id', "13",checked = true %>東京都</label>
+              <label><%= radio_button_tag 'prefecture_id', "14" %>神奈川県</label>
+              <label><%= radio_button_tag 'prefecture_id', "11" %>埼玉県</label>
+              <label><%= radio_button_tag 'prefecture_id', "12" %>千葉県</label>
+              <label><%= radio_button_tag 'prefecture_id', "8" %>茨城県</label>
+              <label><%= radio_button_tag 'prefecture_id', "9" %>栃木県</label>
+              <label><%= radio_button_tag 'prefecture_id', "10" %>群馬県</label>
+            </div>
+            
+            <div class = "form-group">
+              <%= label_tag 'area', "関西地区"%>
+            </div>
+            
+            <div class = "form-group">
+              <label><%= radio_button_tag 'prefecture_id', "27" %>大阪府</label>
+              <label><%= radio_button_tag 'prefecture_id', "26" %>京都府</label>
+              <label><%= radio_button_tag 'prefecture_id', "29" %>奈良県</label>
+              <label><%= radio_button_tag 'prefecture_id', "28" %>兵庫県</label>
+              <label><%= radio_button_tag 'prefecture_id', "25" %>滋賀県</label>
+              <label><%= radio_button_tag 'prefecture_id', "30" %>和歌山県</label>
+            </div>
+            
+            <div class = "text-right">
+              <%= submit_tag '検索',class: 'btn btn-primary btn-block' %><br />
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div id="map-container"></div>
+  <% end %>
+<% end %>

@@ -5,6 +5,16 @@
   </div>
   <div class="name text-center">
     <h1><%= @company.name %></h1>
+    <%if current_user.is_clean_company%>
+      <%= link_to "削除",clean_company_path(@company), method: :delete, data: { confirm: "こちらの会社を削除します。本当によろしいですか?" },class: 'btn btn-danger btn-sm' %>
+    <%end%>
+    <!--
+    <% if current_user.is_clean_company %>
+      <div class="text-center">
+      <%= link_to '会社情報を変更する', edit_clean_company_path(@company),class: 'btn btn-link' %>
+      </div>
+    <% end %>
+    -->
   </div>
 </div>
 <div class="row">
@@ -23,7 +33,14 @@
           <dd><%= @company.user.name %></dd>
           <dt>☎️</dt>
           <dd><%= @company.tel %></dd>
-          <dt>作業可能地域</dt>
+          <dt>作業可能地域
+          
+          <!--
+          <%if current_user.is_clean_company%>
+            <%= link_to '編集', edit_clean_company_clean_prefecture_path(@company),class: 'btn btn-link' %>
+          <%end%>
+          -->
+          </dt>
           <dd></dd>
           <dt></dt>
           <dd></dd>
@@ -38,6 +55,15 @@
             <dt><%= company.square_meters_min %>〜<%= company.square_meters_max %></dt> 
             <dd>¥<%= company.charge %></dd>
           <% end %>
+          <!--
+          <%if current_user.is_clean_company%>
+            <dt>
+            <%= link_to '編集', edit_clean_company_clean_charge_path(@company),class: 'btn btn-link' %>
+            </dt>
+          <%end%>
+          -->
+          <dt></dt>
+          <dd></dd>
         </dl>
 
         <!-- if スレッドが存在する → スレッド画面 show -->

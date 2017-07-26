@@ -6,6 +6,9 @@
   <div class="name text-center">
     <h1><%= @user.name %></h1>
   </div>
+  <div class="text-center">
+    <%= link_to 'ユーザー情報を変更する', edit_user_path(@user),class: 'btn btn-link' %>
+  </div>
   
 </div>
 

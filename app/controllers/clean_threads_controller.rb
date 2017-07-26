@@ -34,14 +34,16 @@ class CleanThreadsController < ApplicationController
       @message = @thread.messages.new(clean_thread_id: @thread.id, company_id: params[:clean_company_id],content: params[:content])  
     end
 
-
+    #binding.pry
     if @message.save
       flash[:success] = 'メッセージを送信しました。'
       redirect_to clean_company_clean_thread_path(params[:clean_company_id],@thread.id)
+      
     else
       flash[:danger] = 'メッセージを送信できません。'
       render :new
     end
+    
   end
   
   def postshow

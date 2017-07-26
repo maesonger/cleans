@@ -15,17 +15,23 @@ class CleanChargesController < ApplicationController
           charge: params[:charge][i]
         )
         if @charge.save
-          flash.now[:danger] = '会社を登録しました。'
-          redirect_to clean_company_path(params[:clean_company_id]) and return
+          
         else
           flash.now[:danger] = '料金の登録に失敗しました。'
           render:new and return
         end
-        
-      else
+      elsif params[:square_meters_min][0].blank?
         flash.now[:danger] = '料金の登録に失敗しました。'
         render:new and return
+      else
+        next
       end
+=begin
+      flash.now[:danger] = '料金の登録に失敗しました。'
+      render:new and return
+=end
     end
+    flash.now[:success] = '会社を登録しました。'
+    redirect_to clean_company_path(params[:clean_company_id]) and return
   end
 end

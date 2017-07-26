@@ -33,6 +33,30 @@ class CleanCompaniesController < ApplicationController
     end
 
   end
+  
+  def destroy
+    CleanCompany.find(params[:id]).destroy
+    flash[:success] = "Company deleted"
+    redirect_to user_path(current_user.id)
+  end
+  
+  def edit
+    @company = CleanCompany.find(params[:id])
+  end
+  
+  def update
+    @company = CleanCompany.find(params[:id])
+    #binding.pry
+    if @company.update(name: params[:clean_company][:name],
+                      image_url: params[:clean_company][:image_url],
+                      tel: params[:clean_company][:tel],
+                      email: params[:clean_company][:email])
+       #binding.pry
+       redirect_to clean_company_path(@company)
+    else
+      render :edit
+    end
+  end
 
   private
   

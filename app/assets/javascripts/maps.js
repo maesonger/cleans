@@ -12,7 +12,7 @@ $(function(){
     ];
 
     $("#map-container").japanMap({
-        width: 800,
+        width: 600,
         selection: "area",
         areas: areas,
         backgroundColor : "#f2fcff",

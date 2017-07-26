@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-offset-3 col-md-6 col-xs-offset-0">
+    <div class="panel panel-default">
+      <div class="panel-heading">会員情報編集</div>
+      <div class="panel-body">
+        <%= form_tag(@user, method: 'patch') do %>
+          <%= render 'layouts/error_messages', model: @user %>
+          <div class="form-group">
+            <% if current_user.is_hotel %>
+              <label><%= radio_button_tag :account_type, "1",{:checked => true} %>民泊オーナー</label>
+              <label><%= radio_button_tag :account_type, "2" %>清掃業者</label>
+            <% elsif current_user.is_clean_company %>
+              <label><%= radio_button_tag :account_type, "1" %>民泊オーナー</label>
+              <label><%= radio_button_tag :account_type, "2",{:checked => true} %>清掃業者</label>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :name, 'お名前' %>
+            <%= text_field_tag 'name',@user.name, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :email, 'メールアドレス' %>
+            <%= email_field_tag 'email',@user.email, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= label_tag :tel, '電話番号(ハイフン不要)' %>
+            <%= text_field_tag 'tel',@user.tel, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :password, 'パスワード' %>
+            <%= password_field_tag 'password','',class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :password_confirmation, 'パスワード（確認）' %>
+            <%= password_field_tag 'password_confirmation','',class: 'form-control' %>
+          </div>
+
+          <div class="text-right">
+            <%= submit_tag '更新する', class: 'btn btn-success' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

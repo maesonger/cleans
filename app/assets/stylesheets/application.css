@@ -208,3 +208,8 @@ p.company-title {
   font-size:25px;
   margin-top: 30px;
 }
+
+#map-container{
+   margin: 0 auto;
+   width: 600px;
+}
