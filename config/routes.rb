@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # TODO: `root to:` の設定も後ほどお願いします！
   root to: 'toppages#index'
   
@@ -27,5 +28,6 @@ Rails.application.routes.draw do
     post 'clean_threads/post'
   end
   
-  
+  get 'home/index'             
+  get 'home/show'
 end
