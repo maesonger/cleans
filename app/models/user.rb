@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_secure_password
   
   
@@ -23,6 +23,21 @@ class User < ApplicationRecord
   
   has_many :clean_threads
   has_many :messages, through: :clean_threads, source: :message
+  
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    User.dummy_email(auth),
+        password: Devise.friendly_token[0, 20]
+      )
+    end
+
+    user
+  end
   
   def is_hotel
     if ( account_type == 1 )
@@ -50,6 +65,12 @@ class User < ApplicationRecord
     # else
       # false
     # end
+  end
+  
+  private
+  
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
   end
 
 end

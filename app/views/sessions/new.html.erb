@@ -16,6 +16,8 @@
 
           <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
         <% end %>
+        
+        <%= link_to 'facebookでログイン', user_facebook_omniauth_authorize_path, class: 'btn btn-success btn-lg' %>
       </div>
     </div>
   </div>
