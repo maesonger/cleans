@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     post 'clean_threads/post'
   end
   
-  
+  get '/auth/:provider/callback',    to: 'users#create',       as: :auth_callback
+  get '/auth/failure',               to: 'users#auth_failure', as: :auth_failure
+  get 'signout', to: 'sessions#destroy', as: 'signout'
 end

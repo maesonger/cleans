@@ -8,9 +8,9 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
                     
-  validates :tel, presence: true, length: { maximum: 11 },
+  validates :tel, length: { maximum: 11 },
                     format: { with: /\A\d{10}$|^\d{11}\z/}
-                  
+              
   has_secure_password
   
   has_many :clean_reviews
@@ -19,6 +19,9 @@ class User < ApplicationRecord
   
   has_many :clean_threads
   has_many :messages, through: :clean_threads, source: :message
+  
+  validates :password, presence: false, on: :facebook_login
+  validates :tel, presence: false, on: :facebook_login
   
   def is_hotel
     if ( account_type == 1 )
@@ -46,6 +49,31 @@ class User < ApplicationRecord
     # else
       # false
     # end
+  end
+  
+  def self.from_omniauth(auth)
+        # emailの提供は必須とする
+    user = User.where('email = ?', auth.info.email).first
+    if user.blank?
+      user = User.new
+    end
+    user.uid   = auth.uid
+    user.provider   = auth.provider
+    user.name  = auth.info.name
+    user.email = auth.info.email
+    user.image_url  = auth.info.image
+    user.password = auth.uid
+    user.oauth_token      = auth.credentials.token
+    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+    user.f_email = auth.info.email
+    user
+    
+  end
+  
+  private
+
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
   end
 
 end
